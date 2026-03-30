@@ -1,0 +1,17 @@
+﻿python.exe : Traceback (most recent call last):
+At line:1 char:1
++ & "c:\Users\user\OneDrive\Masaüstü\kripto app\v
+env\Scripts\python.exe ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Tra 
+   ceback (most recent call last)::String) [],   
+  RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "<string>", line 1, in <module>
+    import indicators
+  File "C:\Users\user\OneDrive\Masa³st³\kripto ap
+p\indicators.py", line 19, in <module>
+    import pandas as pd
+ModuleNotFoundError: No module named 'pandas'

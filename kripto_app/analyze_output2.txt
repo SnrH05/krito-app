@@ -1,0 +1,47 @@
+﻿Analyzing kripto_app...                                         
+
+   info - The value of the local variable 'closes' isn't used - lib\engine\indicator_pipeline.dart:64:11 - unused_local_variable
+   info - Unnecessary cast - lib\engine\indicator_pipeline.dart:153:41 - unnecessary_cast
+   info - DO use curly braces for all flow control structures - lib\engine\tech_engine.dart:27:44 - curly_braces_in_flow_control_structures
+   info - DO use curly braces for all flow control structures - lib\engine\tech_engine.dart:42:46 - curly_braces_in_flow_control_structures
+   info - DO use curly braces for all flow control structures - lib\engine\tech_engine.dart:58:35 - curly_braces_in_flow_control_structures
+   info - DO use curly braces for all flow control structures - lib\engine\tech_engine.dart:110:18 - curly_braces_in_flow_control_structures
+   info - DO use curly braces for all flow control structures - lib\engine\tech_engine.dart:110:34 - curly_braces_in_flow_control_structures
+   info - DO use curly braces for all flow control structures - lib\engine\tech_engine.dart:148:44 - curly_braces_in_flow_control_structures
+   info - DO use curly braces for all flow control structures - lib\engine\tech_engine.dart:233:44 - curly_braces_in_flow_control_structures
+   info - DO use curly braces for all flow control structures - lib\engine\tech_engine.dart:260:40 - curly_braces_in_flow_control_structures
+   info - DO use curly braces for all flow control structures - lib\engine\tech_engine.dart:261:45 - curly_braces_in_flow_control_structures
+   info - DO use curly braces for all flow control structures - lib\engine\tech_engine.dart:262:12 - curly_braces_in_flow_control_structures
+   info - DO use curly braces for all flow control structures - lib\engine\tech_engine.dart:277:23 - curly_braces_in_flow_control_structures
+   info - DO use curly braces for all flow control structures - lib\engine\tech_engine.dart:277:40 - curly_braces_in_flow_control_structures
+   info - DO use curly braces for all flow control structures - lib\engine\tech_engine.dart:287:42 - curly_braces_in_flow_control_structures
+   info - DO use curly braces for all flow control structures - lib\engine\tech_engine.dart:352:44 - curly_braces_in_flow_control_structures
+   info - Prefer const over final for declarations - lib\painters\candlestick_painter.dart:37:5 - prefer_const_declarations
+   info - The parameter 'o' should have the name 'oldDelegate' to match the name used in the overridden method - lib\painters\candlestick_painter.dart:298:51 - avoid_renaming_method_parameters
+   info - Prefer const over final for declarations - lib\painters\drawing_painter.dart:33:5 - prefer_const_declarations
+   info - The value of the local variable 'x' isn't used - lib\painters\drawing_painter.dart:129:11 - unused_local_variable
+   info - The parameter 'o' should have the name 'oldDelegate' to match the name used in the overridden method - lib\painters\drawing_painter.dart:211:47 - avoid_renaming_method_parameters
+   info - Prefer const with constant constructors - lib\painters\indicator_panel_painter.dart:43:21 - prefer_const_constructors
+   info - Prefer const with constant constructors - lib\painters\indicator_panel_painter.dart:50:27 - prefer_const_constructors
+   info - The parameter 'o' should have the name 'oldDelegate' to match the name used in the overridden method - lib\painters\indicator_panel_painter.dart:211:54 - avoid_renaming_method_parameters
+   info - Prefer const over final for declarations - lib\screens\coin_detail_screen.dart:177:5 - prefer_const_declarations
+   info - Prefer const over final for declarations - lib\screens\coin_detail_screen.dart:178:5 - prefer_const_declarations
+   info - The value of the local variable 'bodyW' isn't used - lib\screens\coin_detail_screen.dart:181:11 - unused_local_variable
+   info - Prefer using `??=` over testing for null - lib\screens\coin_detail_screen.dart:212:9 - prefer_conditional_assignment
+   info - Prefer const over final for declarations - lib\screens\coin_detail_screen.dart:249:7 - prefer_const_declarations
+   info - Prefer const over final for declarations - lib\screens\coin_detail_screen.dart:250:7 - prefer_const_declarations
+   info - DO use curly braces for all flow control structures - lib\screens\markets_tab.dart:52:32 - curly_braces_in_flow_control_structures
+   info - DO use curly braces for all flow control structures - lib\screens\markets_tab.dart:52:56 - curly_braces_in_flow_control_structures
+   info - Unused import: 'package:kripto_app/main.dart' - test\widget_test.dart:11:8 - unused_import
+  error - The name 'MyApp' isn't a class - test\widget_test.dart:16:35 - creation_with_non_type
+
+flutter : 34 issues found. (ran in 3.5s)
+At line:1 char:1
++ flutter analyze --no-pub 2>&1 | Out-File -FileP
+ath "C:\Users\user\One ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (34  
+   issues found. (ran in 3.5s):String) [], Remo  
+  teException
+    + FullyQualifiedErrorId : NativeCommandError
+ 

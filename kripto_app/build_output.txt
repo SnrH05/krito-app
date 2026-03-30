@@ -1,0 +1,168 @@
+﻿generated_plugin_registrant.dart found. Deleted.
+Upgrading .gitignore
+Compiling lib\main.dart for the Web...                          
+flutter : Warning: In index.html:40: Flutter's se
+rvice worker is deprecated and will be removed in
+ a future Flutter release. See https://github.com
+/flutter/flutter/issues/156910 for more details.
+At line:1 char:1
++ flutter build web 2>&1 | Out-File -FilePath "C:
+\Users\user\OneDrive\M ...
++ ~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (War 
+   ning: In ind...r more details.:String) [], R  
+  emoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Wasm dry run findings:
+Found incompatibilities with WebAssembly.
+
+package:shared_preferences_web/shared_preferences
+_web.dart 7:1 - dart:html unsupported (0)
+
+Consider addressing these issues to enable wasm b
+uilds. See docs for more info: https://docs.flutt
+er.dev/platform-integration/web/wasm
+
+Use --no-wasm-dry-run to disable these warnings.
+Target dart2js failed: ProcessException: Process 
+exited abnormally with exit code 1:
+lib/core/theme.dart:50:35:
+Error: No named parameter with the name 'primary'
+.
+      style: TextButton.styleFrom(primary: kAccen
+tOrange),
+                                  ^^^^^^^
+/C:/src/flutter/packages/flutter/lib/src/material
+/text_button.dart:183:22:
+Info: Found this candidate, but the arguments don
+'t match.
+  static ButtonStyle styleFrom({
+                     ^^^^^^^^^
+lib/widgets/indicator_config_modal.dart:184:17:
+Error: No named parameter with the name 'primary'
+.
+                primary: kAccentBlue,
+                ^^^^^^^
+/C:/src/flutter/packages/flutter/lib/src/material
+/elevated_button.dart:188:22:
+Info: Found this candidate, but the arguments don
+'t match.
+  static ButtonStyle styleFrom({
+                     ^^^^^^^^^
+lib/widgets/alert_builder_modal.dart:181:21:
+Error: No named parameter with the name 'primary'
+.
+                    primary: kAccentOrange,
+                    ^^^^^^^
+/C:/src/flutter/packages/flutter/lib/src/material
+/outlined_button.dart:175:22:
+Info: Found this candidate, but the arguments don
+'t match.
+  static ButtonStyle styleFrom({
+                     ^^^^^^^^^
+lib/widgets/alert_builder_modal.dart:201:17:
+Error: No named parameter with the name 'primary'
+.
+                primary: kAccentOrange,
+                ^^^^^^^
+/C:/src/flutter/packages/flutter/lib/src/material
+/elevated_button.dart:188:22:
+Info: Found this candidate, but the arguments don
+'t match.
+  static ButtonStyle styleFrom({
+                     ^^^^^^^^^
+Error: Compilation failed.
+  Command: C:\src\flutter\bin\cache\dart-sdk\bin\
+dart.exe compile js --platform-binaries=C:\src\fl
+utter\bin\cache\flutter_web_sdk\kernel --invoker=
+flutter_tool -Ddart.vm.product=true -DFLUTTER_VER
+SION=3.41.6 -DFLUTTER_CHANNEL=stable -DFLUTTER_GI
+T_URL=https://github.com/flutter/flutter.git -DFL
+UTTER_FRAMEWORK_REVISION=db50e20168 -DFLUTTER_ENG
+INE_REVISION=425cfb54d0 -DFLUTTER_DART_VERSION=3.
+11.4 -DFLUTTER_WEB_USE_SKIA=true -DFLUTTER_WEB_US
+E_SKWASM=false -DFLUTTER_WEB_CANVASKIT_URL=https:
+//www.gstatic.com/flutter-canvaskit/425cfb54d01a9
+472b3e81d9e76fd63a4a44cfbcb/ --native-null-assert
+ions --no-source-maps -O4 --minify -o C:\Users\us
+er\OneDrive\Masa├╝st├╝\kripto app\kripto_app\.dar
+t_tool\flutter_build\bae7a0367d329b2fc904251c7932
+029e\app.dill --packages=C:\Users\user\OneDrive\M
+asa├╝st├╝\kripto app\kripto_app\.dart_tool\packag
+e_config.json --cfe-only C:\Users\user\OneDrive\M
+asa├╝st├╝\kripto app\kripto_app\.dart_tool\flutte
+r_build\bae7a0367d329b2fc904251c7932029e\main.dar
+t
+#0      RunResult.throwException (package:flutter
+_tools/src/base/process.dart:153:5)
+#1      _DefaultProcessUtils.run (package:flutter
+_tools/src/base/process.dart:379:19)
+<asynchronous suspension>
+#2      Dart2JSTarget.build (package:flutter_tool
+s/src/build_system/targets/web.dart:208:5)
+<asynchronous suspension>
+#3      _BuildInstance._invokeInternal (package:f
+lutter_tools/src/build_system/build_system.dart:9
+37:9)
+<asynchronous suspension>
+#4      Future.wait.<anonymous closure> (dart:asy
+nc/future.dart:546:21)
+<asynchronous suspension>
+#5      _BuildInstance.invokeTarget (package:flut
+ter_tools/src/build_system/build_system.dart:875:
+32)
+<asynchronous suspension>
+#6      Future.wait.<anonymous closure> (dart:asy
+nc/future.dart:546:21)
+<asynchronous suspension>
+#7      _BuildInstance.invokeTarget (package:flut
+ter_tools/src/build_system/build_system.dart:875:
+32)
+<asynchronous suspension>
+#8      FlutterBuildSystem.build (package:flutter
+_tools/src/build_system/build_system.dart:684:16)
+<asynchronous suspension>
+#9      WebBuilder.buildWeb (package:flutter_tool
+s/src/web/compile.dart:107:34)
+<asynchronous suspension>
+#10     BuildWebCommand.runCommand (package:flutt
+er_tools/src/commands/build_web.dart:300:5)
+<asynchronous suspension>
+#11     FlutterCommand.run.<anonymous closure> (p
+ackage:flutter_tools/src/runner/flutter_command.d
+art:1590:27)
+<asynchronous suspension>
+#12     AppContext.run.<anonymous closure> (packa
+ge:flutter_tools/src/base/context.dart:154:19)
+<asynchronous suspension>
+#13     CommandRunner.runCommand (package:args/co
+mmand_runner.dart:212:13)
+<asynchronous suspension>
+#14     FlutterCommandRunner.runCommand.<anonymou
+s closure> (package:flutter_tools/src/runner/flut
+ter_command_runner.dart:496:9)
+<asynchronous suspension>
+#15     AppContext.run.<anonymous closure> (packa
+ge:flutter_tools/src/base/context.dart:154:19)
+<asynchronous suspension>
+#16     FlutterCommandRunner.runCommand (package:
+flutter_tools/src/runner/flutter_command_runner.d
+art:431:5)
+<asynchronous suspension>
+#17     FlutterCommandRunner.run.<anonymous closu
+re> (package:flutter_tools/src/runner/flutter_com
+mand_runner.dart:307:33)
+<asynchronous suspension>
+#18     run.<anonymous closure>.<anonymous closur
+e> (package:flutter_tools/runner.dart:104:11)
+<asynchronous suspension>
+#19     AppContext.run.<anonymous closure> (packa
+ge:flutter_tools/src/base/context.dart:154:19)
+<asynchronous suspension>
+#20     main (package:flutter_tools/executable.da
+rt:103:3)
+<asynchronous suspension>
+
+Compiling lib\main.dart for the Web...                             27,5s
+Error: Failed to compile application for the Web.
