@@ -1,0 +1,38 @@
+//@version=5
+indicator("Titanium RSI Pro (Div & Bounce)", overlay=false)
+
+// --- Parameters ---
+rsi_len = input.int(14, "RSI Period")
+ob = input.int(75, "Overbought (Bounce)")
+os = input.int(25, "Oversold (Bounce)")
+
+rsi = ta.rsi(close, rsi_len)
+
+// --- 1. Divergence Logic (Titanium Bot Style) ---
+// Bot fiyatın son 3 mumuna göre basit ama etkili bir uyumsuzluk arar:
+price_falling = close < close[2]
+rsi_rising = rsi > nz(rsi[2], 0)
+
+price_rising = close > close[2]
+rsi_falling = rsi < nz(rsi[2], 0)
+
+bullish_div = price_falling and rsi_rising and rsi < 40
+bearish_div = price_rising and rsi_falling and rsi > 60
+
+// --- 2. RSI Extreme Bounce ---
+// Aşırı alım/satım bölgesinden ani dönüşler
+bounce_up = nz(rsi[1], 50) < os and rsi > rsi[1] and close > open
+bounce_down = nz(rsi[1], 50) > ob and rsi < rsi[1] and open > close
+
+// --- Plotting ---
+plot(rsi, color=color.new(color.purple, 0), title="RSI", linewidth=2)
+hline(ob, "Overbought", color=color.red, linestyle=hline.style_dotted)
+hline(os, "Oversold", color=color.green, linestyle=hline.style_dotted)
+hline(60, "Bear Div Threshold", color=color.new(color.gray, 50), linestyle=hline.style_solid)
+hline(40, "Bull Div Threshold", color=color.new(color.gray, 50), linestyle=hline.style_solid)
+
+plotshape(bullish_div, title="Bullish Div", style=shape.labelup, location=location.bottom, color=color.new(color.green, 0), text="DIV", textcolor=color.white, size=size.tiny)
+plotshape(bearish_div, title="Bearish Div", style=shape.labeldown, location=location.top, color=color.new(color.red, 0), text="DIV", textcolor=color.white, size=size.tiny)
+
+plotshape(bounce_up, title="Bounce Up", style=shape.triangleup, location=location.bottom, color=color.new(color.lime, 0), size=size.small)
+plotshape(bounce_down, title="Bounce Down", style=shape.triangledown, location=location.top, color=color.new(color.maroon, 0), size=size.small)

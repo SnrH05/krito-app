@@ -1,0 +1,55 @@
+//@version=5
+indicator("Titanium Trend Helper & ADX", overlay=true)
+
+// --- Parameters ---
+ema_fast_len = input.int(9, "EMA Fast")
+ema_mid_len = input.int(21, "EMA Mid")
+ema_slow_len = input.int(50, "EMA Slow")
+adx_len = input.int(14, "ADX Period")
+
+// --- EMAs ---
+ema_fast = ta.ema(close, ema_fast_len)
+ema_mid = ta.ema(close, ema_mid_len)
+ema_slow = ta.ema(close, ema_slow_len)
+
+plot(ema_fast, color=color.new(color.blue, 0), title="EMA Fast")
+plot(ema_mid, color=color.new(color.orange, 0), title="EMA Mid")
+plot(ema_slow, color=color.new(color.red, 0), title="EMA Slow")
+
+// Trend Alignment calculation (Bot logic)
+bull_align = (ema_fast > ema_mid) and (ema_mid > ema_slow)
+bear_align = (ema_fast < ema_mid) and (ema_mid < ema_slow)
+
+// --- ADX ---
+[plus_di, minus_di, adx] = ta.dmi(adx_len, adx_len)
+
+// Bot's Custom Trend Strength Logic
+// ADX > 35 = ÇOK GÜÇLÜ
+// ADX > 25 = GÜÇLÜ
+// ADX > 20 = NORMAL
+var string trend_str = "ZAYIF"
+var color trend_color = color.new(color.gray, 90)
+
+if adx > 35 and (bull_align or bear_align)
+    trend_str := "VERY STRONG"
+    trend_color := bull_align ? color.new(color.green, 80) : color.new(color.red, 80)
+else if adx > 25 and (bull_align or bear_align)
+    trend_str := "STRONG"
+    trend_color := bull_align ? color.new(color.green, 85) : color.new(color.red, 85)
+else if adx > 20
+    trend_str := "NORMAL"
+    trend_color := color.new(color.yellow, 90)
+else
+    trend_str := "WEAK (Ranging)"
+    trend_color := color.new(color.gray, 90)
+
+// Highlight background based on Bot's trend categorization
+bgcolor(trend_color, title="Trend Strength Background")
+
+// Display table with ADX info to ease SL multiplier decisions
+var table info_table = table.new(position.top_right, 2, 2, bgcolor=color.new(color.black, 50), border_width=1)
+if barstate.islast
+    table.cell(info_table, 0, 0, "ADX Value", text_color=color.white)
+    table.cell(info_table, 1, 0, str.tostring(math.round(adx, 2)), text_color=color.aqua)
+    table.cell(info_table, 0, 1, "Trend State", text_color=color.white)
+    table.cell(info_table, 1, 1, trend_str, text_color=color.aqua)

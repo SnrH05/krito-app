@@ -1,0 +1,37 @@
+//@version=5
+indicator("Titanium Momentum & Volatility", overlay=true)
+
+// --- Parameters ---
+mom_lookback = input.int(5, "Momentum Lookback", tooltip="Kaç bar öncesine göre kıyaslanacak?")
+mom_threshold = input.float(2.0, "Momentum Threshold (%)", tooltip="Dönüş için gereken güç yüzdesi")
+
+atr_len = input.int(14, "ATR Period")
+vol_mult = input.float(2.0, "Volatility Spike Multiplier")
+
+// --- 1. Momentum Reversal ---
+// Bot formatı: Son 5 barın ilk fiyatı (close[4]) ile anlık fiyat (close) kıyaslanır.
+mom_start = nz(close[mom_lookback - 1], close)
+mom_change = ((close - mom_start) / mom_start) * 100
+
+// > 2.0% ise REVERSAL_UP, < -2.0% ise REVERSAL_DOWN
+mom_up = mom_change > mom_threshold
+mom_down = mom_change < -mom_threshold
+
+// --- 2. Volatility Spike ---
+// Anlık ATR'nin ortalama(50) ATR'ye oranı
+atr = ta.atr(atr_len)
+atr_avg = ta.sma(atr, 50)
+atr_ratio = atr_avg > 0 ? (atr / atr_avg) : 1.0
+
+is_bullish = close > open
+vol_spike_up = (atr_ratio > vol_mult) and is_bullish
+vol_spike_down = (atr_ratio > vol_mult) and not is_bullish
+
+// --- Plotting ---
+// Momentum sinyalleri (Büyük Pembe/Mor Oklar)
+plotshape(mom_up, title="Mom Up", style=shape.arrowup, location=location.belowbar, color=color.new(color.fuchsia, 0), size=size.normal, text="MOM")
+plotshape(mom_down, title="Mom Down", style=shape.arrowdown, location=location.abovebar, color=color.new(color.fuchsia, 0), size=size.normal, text="MOM")
+
+// Volatilite patlaması (Mumun altında/üstünde ikon)
+plotchar(vol_spike_up, title="Vol Spike Up", char="V", location=location.belowbar, color=color.new(color.yellow, 0), size=size.tiny)
+plotchar(vol_spike_down, title="Vol Spike Down", char="V", location=location.abovebar, color=color.new(color.yellow, 0), size=size.tiny)
